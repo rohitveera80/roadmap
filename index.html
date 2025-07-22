@@ -5,95 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[Your Name] | [Domain] Research Report</title>
     
-    <!-- Placeholder Comments -->
-    <!-- Chosen Palette: "Cool Sky" - A calm and professional palette using shades of blue, cool gray, and a hint of mint green for accents. -->
-    <!-- Application Structure Plan: A single-page, top-to-bottom narrative structure. It starts with a captivating 3D hero section, followed by an interactive "Contents" grid for quick navigation. Each of the 7 report sections is presented in its own dedicated, full-width block with scroll-triggered animations. This linear flow is intuitive for a report, while 3D cards and interactive charts add engagement without disrupting the user's reading path. The structure prioritizes clarity and a guided exploration of the research. -->
-    <!-- Visualization & Content Choices: 
-        - Hero Section: Goal: Engage. Method: 3D parallax background with CSS gradients. Interaction: Mouse movement parallax. Justification: Creates an immersive, modern first impression.
-        - Navigation: Goal: Organize. Method: 3D rotating cards (HTML/CSS). Interaction: Hover. Justification: A visually interesting way to present the main sections, encouraging exploration.
-        - Demand Analysis Chart: Goal: Compare. Method: Animated Bar Chart (HTML/JS). Interaction: Scroll-triggered animation. Justification: Dynamically presents quantitative data, making it more engaging than a static image. Library: Vanilla JS for animation control.
-        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <style>
-        /* Custom CSS for 3D effects, animations, and typography */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* A very light cool gray */
-            color: #1e293b; /* Slate 800 for text */
-            scroll-behavior: smooth;
-        }
-
-        /* 3D Card Effect */
-        .card-3d {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            transition: transform 0.5s ease-out, box-shadow 0.3s ease-out;
-        }
-        .card-3d:hover {
-            transform: rotateY(8deg) rotateX(4deg) scale(1.03);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Scroll-triggered Animations */
-        .scroll-fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .scroll-fade-in.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Hero Section 3D Background */
-        .hero-section {
-            position: relative;
-            overflow: hidden;
-            background-color: #e0f2fe; /* Light blue fallback */
-        }
-        #hero-3d-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            transition: transform 0.1s linear; /* Smooth mouse follow */
-        }
-
-        /* Timeline Styling for "When to Start" section */
-        .timeline-item {
-            position: relative;
-            padding-left: 2.5rem; /* Space for the line and dot */
-            padding-bottom: 2rem;
-            border-left: 2px solid #cbd5e1; /* Slate 300 */
-        }
-        .timeline-item:last-child {
-            border-left: 2px solid transparent;
-        }
-        .timeline-dot {
-            position: absolute;
-            left: -0.5rem; /* Center the dot on the line */
-            top: 0;
-            width: 1rem;
-            height: 1rem;
-            background-color: #3b82f6; /* Blue 500 */
-            border-radius: 9999px;
-            border: 2px solid #f8fafc;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased">
 
-    <!-- === HERO SECTION === -->
     <header class="hero-section h-screen flex items-center justify-center text-center p-4">
         <canvas id="hero-3d-bg"></canvas>
         <div class="relative z-10 max-w-4xl mx-auto">
@@ -108,7 +29,6 @@
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
 
-        <!-- === TABLE OF CONTENTS === -->
         <section id="contents" class="scroll-fade-in mb-24">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12">Table of Contents</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -143,7 +63,6 @@
             </div>
         </section>
 
-        <!-- === 1. DOMAIN ROADMAP === -->
         <section id="domain-roadmap" class="scroll-fade-in mb-24 p-8 bg-white rounded-2xl shadow-xl">
             <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">1. Domain Roadmap</h2>
             <p class="text-lg text-slate-600 mb-8">A structured plan to navigate your chosen domain, from foundational skills to advanced specialization. This timeline ensures a progressive and comprehensive learning journey.</p>
@@ -169,11 +88,9 @@
             </div>
         </section>
 
-        <!-- === 2. WHEN TO START === -->
         <section id="when-to-start" class="scroll-fade-in mb-24">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12">2. When to Start: A Semester-by-Semester Guide</h2>
             <div class="relative">
-                <!-- Timeline items -->
                 <div class="timeline-item scroll-fade-in">
                     <div class="timeline-dot"></div>
                     <h3 class="text-xl font-semibold text-blue-600 mb-2">Semesters 1-2 (First Year)</h3>
@@ -197,7 +114,6 @@
             </div>
         </section>
         
-        <!-- === 3. DEMAND ANALYSIS === -->
         <section id="demand-analysis" class="scroll-fade-in mb-24 p-8 bg-white rounded-2xl shadow-xl">
             <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">3. Demand Analysis</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -225,7 +141,6 @@
             </div>
         </section>
 
-        <!-- === 4. MINI CASE STUDY === -->
         <section id="mini-case-study" class="scroll-fade-in mb-24">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12">4. Mini Case Study</h2>
             <div class="bg-white p-8 rounded-2xl shadow-xl card-3d">
@@ -239,7 +154,6 @@
             </div>
         </section>
 
-        <!-- === 5. INTERNSHIP OPPORTUNITY TRACKING === -->
         <section id="internship-tracking" class="scroll-fade-in mb-24 p-8 bg-white rounded-2xl shadow-xl">
             <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">5. Internship Opportunities</h2>
             <p class="text-lg text-slate-600 mb-8">A curated list of 10-12 active internship opportunities. (Note: This is placeholder data and should be updated with live information).</p>
@@ -255,7 +169,6 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-slate-200">
-                        <!-- Example Row 1 -->
                         <tr class="hover:bg-slate-50 transition-colors">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Tech Solutions Inc.</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">ML Intern</td>
@@ -263,7 +176,6 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">31 Aug 2025</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm"><a href="#" class="text-blue-600 hover:text-blue-800">Apply</a></td>
                         </tr>
-                        <!-- Example Row 2 -->
                         <tr class="hover:bg-slate-50 transition-colors">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Data Insights Co.</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">Data Science Intern</td>
@@ -271,13 +183,11 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">15 Sep 2025</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm"><a href="#" class="text-blue-600 hover:text-blue-800">Apply</a></td>
                         </tr>
-                        <!-- Add more rows here -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- === 6. ALUMNI & INDUSTRY INTERVIEWS === -->
         <section id="alumni-interviews" class="scroll-fade-in mb-24">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12">6. Alumni & Industry Interviews</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -306,7 +216,6 @@
             </div>
         </section>
 
-        <!-- === 7. SCHOLARSHIPS & FELLOWSHIPS === -->
         <section id="scholarships" class="scroll-fade-in p-8 bg-white rounded-2xl shadow-xl">
             <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">7. Scholarships & Fellowships</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -336,7 +245,6 @@
 
     </main>
 
-    <!-- === FOOTER === -->
     <footer class="bg-slate-800 text-white py-8 text-center mt-24">
         <div class="container mx-auto px-4">
             <p class="text-lg mb-2">Final Checklist Complete & Submitted</p>
@@ -344,169 +252,9 @@
         </div>
     </footer>
 
-    <!-- Three.js and Chart.js CDNs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- 3D Hero Background using Three.js ---
-            // This script creates a subtle, animated particle background
-            let scene, camera, renderer, particles, mouseX = 0, mouseY = 0;
-            const windowHalfX = window.innerWidth / 2;
-            const windowHalfY = window.innerHeight / 2;
-
-            function initHero3D() {
-                const canvas = document.getElementById('hero-3d-bg');
-                scene = new THREE.Scene();
-                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-                camera.position.z = 1000;
-
-                const material = new THREE.PointsMaterial({
-                    color: 0x3b82f6, // Blue 500
-                    size: 2,
-                    blending: THREE.AdditiveBlending,
-                    transparent: true,
-                    opacity: 0.7
-                });
-
-                const geometry = new THREE.BufferGeometry();
-                const vertices = [];
-                const numParticles = 5000;
-
-                for (let i = 0; i < numParticles; i++) {
-                    const x = Math.random() * 2000 - 1000;
-                    const y = Math.random() * 2000 - 1000;
-                    const z = Math.random() * 2000 - 1000;
-                    vertices.push(x, y, z);
-                }
-                geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-                particles = new THREE.Points(geometry, material);
-                scene.add(particles);
-
-                renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-                renderer.setPixelRatio(window.devicePixelRatio);
-                renderer.setSize(window.innerWidth, window.innerHeight);
-
-                document.querySelector('.hero-section').addEventListener('mousemove', onDocumentMouseMove);
-                window.addEventListener('resize', onWindowResize);
-            }
-
-            function onWindowResize() {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            }
-
-            function onDocumentMouseMove(event) {
-                mouseX = (event.clientX - windowHalfX) / 2;
-                mouseY = (event.clientY - windowHalfY) / 2;
-            }
-
-            function animateHero3D() {
-                requestAnimationFrame(animateHero3D);
-                const time = Date.now() * 0.00005;
-                camera.position.x += (mouseX - camera.position.x) * 0.05;
-                camera.position.y += (-mouseY - camera.position.y) * 0.05;
-                camera.lookAt(scene.position);
-                particles.rotation.x = time * 0.2;
-                particles.rotation.y = time * 0.4;
-                renderer.render(scene, camera);
-            }
-            
-            initHero3D();
-            animateHero3D();
-
-            // --- Scroll-triggered Animations ---
-            const scrollElements = document.querySelectorAll('.scroll-fade-in');
-            const elementInView = (el, dividend = 1) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (
-                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-                );
-            };
-
-            const displayScrollElement = (element) => {
-                element.classList.add('is-visible');
-            };
-
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.25)) {
-                        displayScrollElement(el);
-                    }
-                });
-            };
-            window.addEventListener('scroll', handleScrollAnimation);
-            handleScrollAnimation(); // Initial check
-
-            // --- Demand Analysis Chart.js ---
-            const chartCanvas = document.getElementById('demand-chart');
-            if (chartCanvas) {
-                const ctx = chartCanvas.getContext('2d');
-                const demandChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Present Demand', 'Next 12 Months', '3-Year Outlook'],
-                        datasets: [{
-                            label: 'Job Openings (in thousands)',
-                            data: [0, 0, 0], // Initial data, will be animated in
-                            backgroundColor: [
-                                'rgba(59, 130, 246, 0.6)', // Blue
-                                'rgba(34, 197, 94, 0.6)', // Green
-                                'rgba(139, 92, 246, 0.6)'  // Violet
-                            ],
-                            borderColor: [
-                                'rgba(59, 130, 246, 1)',
-                                'rgba(34, 197, 94, 1)',
-                                'rgba(139, 92, 246, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                grid: {
-                                    color: '#e2e8f0' // Slate 200
-                                }
-                            },
-                            x: {
-                                grid: {
-                                    display: false
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return ${context.dataset.label}: ${context.raw}k;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-
-                // Animate chart when it becomes visible
-                const chartObserver = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting) {
-                        demandChart.data.datasets[0].data = [50, 65, 90]; // Final data
-                        demandChart.update();
-                        chartObserver.unobserve(chartCanvas); // Animate only once
-                    }
-                }, { threshold: 0.5 });
-
-                chartObserver.observe(chartCanvas);
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
